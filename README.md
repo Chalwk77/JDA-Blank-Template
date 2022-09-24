@@ -1,8 +1,6 @@
 # JDA-Blank-Template
 A blank JDA template for convenience.
 
-> Includes a `pom.xml` file with the latest JDA version and the `org.json` dependency.
-
 Features:
 - [x] A blank template for JDA
 - [x] A `pom.xml` file with the latest JDA version and the `org.json` dependency

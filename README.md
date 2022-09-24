@@ -10,3 +10,5 @@ Features:
 - [x] A `LICENSE` file with the MIT license
 - [x] A `CommandMamager` class to manage commands
 - [x] A `Command` interface to create commands
+
+Copyright (c) 2022, Jericho Crosby <jericho.crosby227@gmail.com>

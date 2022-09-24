@@ -1,8 +1,6 @@
-# JDA-Blank-Template
-A blank JDA template for convenience.
+### A blank JDA template for convenience.
 
 Features:
-- [x] A blank template for JDA
 - [x] A `pom.xml` file with the latest JDA version and the `org.json` dependency
 - [x] A `settings.json` file with the bot token
 - [x] A `gitignore` file to ignore the `target` folder

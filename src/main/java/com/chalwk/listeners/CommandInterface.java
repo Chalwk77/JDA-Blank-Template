@@ -1,9 +1,9 @@
 // Copyright (c) 2022, Jericho Crosby <jericho.crosby227@gmail.com>
 
-package com.jericho.listeners;
+package com.chalwk.listeners;
 
-import net.dv8tion.jda.api.interactions.commands.build.OptionData;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
+import net.dv8tion.jda.api.interactions.commands.build.OptionData;
 
 import java.util.List;
 

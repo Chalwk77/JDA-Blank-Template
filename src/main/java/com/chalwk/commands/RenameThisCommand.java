@@ -1,11 +1,11 @@
 // Copyright (c) 2022, Jericho Crosby <jericho.crosby227@gmail.com>
 
-package com.jericho.commands;
+package com.chalwk.commands;
 
-import com.jericho.listeners.CommandInterface;
+import com.chalwk.listeners.CommandInterface;
+import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.interactions.commands.OptionType;
 import net.dv8tion.jda.api.interactions.commands.build.OptionData;
-import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,19 +14,23 @@ public class RenameThisCommand implements CommandInterface {
 
     @Override
     public String getName() {
-        return "wb_add_word";
+        return "command_name_here";
     }
 
     @Override
     public String getDescription() {
-        return "Add a word to a lang file (Admin Only)";
+        return "command_description_here";
     }
 
     @Override
     public List<OptionData> getOptions() {
         List<OptionData> data = new ArrayList<>();
-        data.add(new OptionData(OptionType.STRING, "word", "Add a new word").setRequired(true));
-        data.add(new OptionData(OptionType.STRING, "language", "Language to add the word to.").setRequired(true));
+
+        OptionData option = new OptionData(OptionType.STRING, "option_name_here", "option_description_here");
+        option.addChoice("choice_name_here", "choice_value_here");
+
+        data.add(option);
+
         return data;
     }
 

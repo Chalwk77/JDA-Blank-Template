@@ -1,6 +1,6 @@
 // Copyright (c) 2022, Jericho Crosby <jericho.crosby227@gmail.com>
 
-package com.jericho.listeners;
+package com.chalwk.listeners;
 
 import net.dv8tion.jda.api.entities.User;
 import net.dv8tion.jda.api.events.guild.GuildReadyEvent;
@@ -10,14 +10,12 @@ import org.jetbrains.annotations.NotNull;
 
 import javax.annotation.Nonnull;
 
-import static com.jericho.Main.cprint;
-
 public class EventListeners extends ListenerAdapter {
 
     @Override
     public void onGuildReady(@Nonnull GuildReadyEvent event) {
-        cprint("Guild ready: " + event.getGuild().getName());
-        cprint("Bot name: " + event.getJDA().getSelfUser().getName());
+        System.out.println("Guild ready: " + event.getGuild().getName());
+        System.out.println("Bot name: " + event.getJDA().getSelfUser().getName());
     }
 
     @Override

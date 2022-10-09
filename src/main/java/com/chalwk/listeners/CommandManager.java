@@ -1,12 +1,12 @@
 // Copyright (c) 2022, Jericho Crosby <jericho.crosby227@gmail.com>
 
-package com.jericho.listeners;
+package com.chalwk.listeners;
 
-import org.jetbrains.annotations.NotNull;
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.events.ReadyEvent;
-import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
+import net.dv8tion.jda.api.hooks.ListenerAdapter;
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 import java.util.List;

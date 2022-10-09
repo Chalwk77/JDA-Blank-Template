@@ -1,6 +1,6 @@
 // Copyright (c) 2022, Jericho Crosby <jericho.crosby227@gmail.com>
 
-package com.jericho.Utilities;
+package com.chalwk.Utilities;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
@@ -10,24 +10,37 @@ import java.io.*;
 public class FileIO {
 
     /**
-     * Path to the resources' folder:
-     * */
-    private static final String path = "src/main/resources/";
+     * Get the path of the program.
+     *
+     * @return the path of the program.
+     */
+    public static String getProgramPath() {
+        String currentDirectory = System.getProperty("user.dir");
+        currentDirectory = currentDirectory.replace("\\", "/");
+        return currentDirectory;
+    }
 
     /**
-     * Load a JSON file as a JSONArray:
-     * @param file The name of the file to load.
-     * @return The JSONArray of the file.
-     * @throws IOException If the file cannot be found.
-     * */
+     * Load a JSON file.
+     *
+     * @param file the name of the file.
+     * @return the JSON array.
+     */
     public static JSONArray loadJSONArray(String file) throws IOException {
-        BufferedReader reader = new BufferedReader(new FileReader(path + file));
+
+        String d = getProgramPath();
+        File f = new File(d + "/" + file);
+
+        BufferedReader reader = new BufferedReader(new FileReader(f));
         String line = reader.readLine();
+
         StringBuilder stringBuilder = new StringBuilder();
+
         while (line != null) {
             stringBuilder.append(line);
             line = reader.readLine();
         }
+
         String content = stringBuilder.toString();
         if (content.equals("")) {
             return new JSONArray();
@@ -37,19 +50,25 @@ public class FileIO {
     }
 
     /**
-     * Load a JSON file as a JSONObject:
-     * @param file The name of the file to load.
-     * @return The JSONObject of the file.
-     * @throws IOException If the file cannot be found.
-     * */
+     * Load a JSON file.
+     *
+     * @param file the name of the file.
+     * @return the JSON object.
+     */
     public static JSONObject loadJSONObject(String file) throws IOException {
-        BufferedReader reader = new BufferedReader(new FileReader(path + file));
+        String d = getProgramPath();
+        File f = new File(d + "/" + file);
+
+        BufferedReader reader = new BufferedReader(new FileReader(f));
+
         String line = reader.readLine();
         StringBuilder stringBuilder = new StringBuilder();
+
         while (line != null) {
             stringBuilder.append(line);
             line = reader.readLine();
         }
+
         String content = stringBuilder.toString();
         if (content.equals("")) {
             return new JSONObject();
@@ -59,13 +78,13 @@ public class FileIO {
     }
 
     /**
-     * Save a JSONArray to a file:
-     * @param file The name of the file to save to.
-     * @param json The JSONArray to save.
-     * @throws IOException If the file cannot be found.
-     * */
+     * Write a JSON file.
+     *
+     * @param file the name of the file.
+     */
     public static void writeJSONFile(JSONArray json, String file) throws IOException {
-        FileWriter fileWriter = new FileWriter(path + file);
+        String d = getProgramPath();
+        FileWriter fileWriter = new FileWriter(d + "/" + file);
         fileWriter.write(json.toString(4));
         fileWriter.flush();
         fileWriter.close();

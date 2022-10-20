@@ -1,0 +1,21 @@
+[ [ {
+  "color": "0x00FF00",
+  "description": "A new game has started on [bloodgulch] - [LNZ-DAC]",
+  "fields": [ {
+    "inline": true,
+    "name": "Map",
+    "value": "bloodgulch"
+  }, {
+    "inline": true,
+    "name": "Mode",
+    "value": "LNZ-DAC"
+  }, {
+    "inline": true,
+    "name": "Time Limit:",
+    "value": "(not yet implemented)"
+  } ],
+  "footer": {
+    "text": "!%a, %d %b %Y %H:%M:%S"
+  },
+  "title": "[NEW GAME]"
+}, false, "1032411616001671318" ] ]

@@ -1,39 +1,39 @@
-// Copyright (c) 2022, Jericho Crosby <jericho.crosby227@gmail.com>
-
 package com.chalwk.Utilities;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.*;
+import java.nio.file.DirectoryStream;
+import java.nio.file.Files;
+import java.nio.file.Path;
+
+import static com.chalwk.Main.getSettings;
 
 public class FileIO {
 
-    /**
-     * Get the path of the program.
-     *
-     * @return the path of the program.
-     */
-    public static String getProgramPath() {
+    static String programPath = getProgramPath();
+
+    private static void checkExists(File file) throws IOException {
+        boolean exists = file.exists();
+        if (!exists) {
+            file.createNewFile();
+        }
+    }
+
+    private static String getProgramPath() {
         String currentDirectory = System.getProperty("user.dir");
         currentDirectory = currentDirectory.replace("\\", "/");
         return currentDirectory;
     }
 
-    /**
-     * Load a JSON file.
-     *
-     * @param file the name of the file.
-     * @return the JSON array.
-     */
-    public static JSONArray loadJSONArray(String file) throws IOException {
+    public static String readFile(String fileName) throws IOException {
 
-        String d = getProgramPath();
-        File f = new File(d + "/" + file);
+        File f = new File(programPath + "/" + fileName);
+        checkExists(f);
 
         BufferedReader reader = new BufferedReader(new FileReader(f));
         String line = reader.readLine();
-
         StringBuilder stringBuilder = new StringBuilder();
 
         while (line != null) {
@@ -41,7 +41,12 @@ public class FileIO {
             line = reader.readLine();
         }
 
-        String content = stringBuilder.toString();
+        reader.close();
+        return stringBuilder.toString();
+    }
+
+    public static JSONArray getJSONArray(String fileName) throws IOException {
+        String content = readFile(fileName);
         if (content.equals("")) {
             return new JSONArray();
         } else {
@@ -49,27 +54,8 @@ public class FileIO {
         }
     }
 
-    /**
-     * Load a JSON file.
-     *
-     * @param file the name of the file.
-     * @return the JSON object.
-     */
-    public static JSONObject loadJSONObject(String file) throws IOException {
-        String d = getProgramPath();
-        File f = new File(d + "/" + file);
-
-        BufferedReader reader = new BufferedReader(new FileReader(f));
-
-        String line = reader.readLine();
-        StringBuilder stringBuilder = new StringBuilder();
-
-        while (line != null) {
-            stringBuilder.append(line);
-            line = reader.readLine();
-        }
-
-        String content = stringBuilder.toString();
+    public static JSONObject getJSONObject(String fileName) throws IOException {
+        String content = readFile(fileName);
         if (content.equals("")) {
             return new JSONObject();
         } else {
@@ -77,16 +63,47 @@ public class FileIO {
         }
     }
 
-    /**
-     * Write a JSON file.
-     *
-     * @param file the name of the file.
-     */
-    public static void writeJSONFile(JSONArray json, String file) throws IOException {
-        String d = getProgramPath();
-        FileWriter fileWriter = new FileWriter(d + "/" + file);
+    public static void writeJSONArray(JSONArray json, String fileName) throws IOException {
+        //deleteFileIfTooBig(fileName);
+        FileWriter fileWriter = new FileWriter(programPath + "/" + fileName);
         fileWriter.write(json.toString(4));
         fileWriter.flush();
         fileWriter.close();
+    }
+
+    public static void writeJSONObject(JSONArray json, String fileName) throws IOException {
+        //deleteFileIfTooBig(fileName);
+        FileWriter fileWriter = new FileWriter(programPath + "/" + fileName);
+        fileWriter.write(json.toString(4));
+        fileWriter.flush();
+        fileWriter.close();
+    }
+
+    public static void deleteFileIfTooBig(String fileName) throws IOException {
+
+        int maxFileSize = getSettings().getInt("max_file_size");
+
+        Path path = new File(programPath).toPath();
+        DirectoryStream<Path> stream = Files.newDirectoryStream(path, fileName);
+
+        for (Path file : stream) {
+            if (Files.isRegularFile(file)) {
+
+                long size = Files.size(file); // size in bytes
+                int sizeInKB = (int) (size / 1024);
+
+                System.out.println("File size: " + sizeInKB);
+
+                if (sizeInKB > maxFileSize) {
+                    Files.delete(file);
+
+                    System.out.println("File deleted: " + file + " (" + sizeInKB + "KB)");
+
+                    File f = new File(programPath + "/" + fileName);
+                    checkExists(f);
+                }
+            }
+        }
+        stream.close();
     }
 }

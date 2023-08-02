@@ -1,4 +1,6 @@
-package com.chalwk.Utilities;
+// Copyright (c) 2023, Jericho Crosby <jericho.crosby227@gmail.com>
+
+package com.chalwk.util;
 
 import java.io.BufferedReader;
 import java.io.FileReader;

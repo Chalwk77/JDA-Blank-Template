@@ -1,26 +1,27 @@
-// Copyright (c) 2022, Jericho Crosby <jericho.crosby227@gmail.com>
+// Copyright (c) 2023, Jericho Crosby <jericho.crosby227@gmail.com>
 
 package com.chalwk.listeners;
 
 import net.dv8tion.jda.api.entities.Guild;
-import net.dv8tion.jda.api.events.ReadyEvent;
+import net.dv8tion.jda.api.entities.Member;
+import net.dv8tion.jda.api.entities.Role;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
+import net.dv8tion.jda.api.events.session.ReadyEvent;
 import net.dv8tion.jda.api.hooks.ListenerAdapter;
 import org.jetbrains.annotations.NotNull;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * This class is used to manage all commands.
- * Extends ListenerAdapter to listen for events.
- */
+import static com.chalwk.Main.settings;
+
 public class CommandManager extends ListenerAdapter {
 
-    // List of all commands
+    private static final JSONObject commands_on_file = settings.getJSONObject("commands");
+
     private final List<CommandInterface> commands = new ArrayList<>();
 
-    // Register commands:
     @Override
     public void onReady(@NotNull ReadyEvent event) {
         for (Guild guild : event.getJDA().getGuilds()) {
@@ -30,18 +31,35 @@ public class CommandManager extends ListenerAdapter {
         }
     }
 
-    // Execute commands:
+    public boolean hasPerm(SlashCommandInteractionEvent event, CommandInterface command) {
+
+        String roleID = command.getRoleID(); // required role ID
+
+        Member member = event.getMember(); // this member
+
+        assert member != null;
+        List<Role> roles = member.getRoles(); // this member's roles
+
+        Guild guild = event.getGuild(); // current guild
+
+        if (!roles.contains(guild.getRoleById(roleID))) {
+            event.reply("You do not have permission to use this command.").setEphemeral(true).queue();
+            return false;
+        }
+        return true;
+    }
+
     @Override
     public void onSlashCommandInteraction(@NotNull SlashCommandInteractionEvent event) {
         for (CommandInterface command : commands) {
-            if (event.getName().equals(command.getName())) {
+            String this_command = event.getName();
+            if (this_command.equals(command.getName()) && (hasPerm(event, command))) {
                 command.execute(event);
                 return;
             }
         }
     }
 
-    // Add commands to the list:
     public void add(CommandInterface command) {
         commands.add(command);
     }

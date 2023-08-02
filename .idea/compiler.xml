@@ -6,11 +6,12 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
-        <module name="JDA-Blank-Template" />
+        <module name="Halo-1-Bot" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="JDA-Blank-Template" target="17" />
+      <module name="name_of_jar_file" target="17" />
     </bytecodeTargetLevel>
   </component>
 </project>

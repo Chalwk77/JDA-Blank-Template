@@ -1,4 +1,4 @@
-// Copyright (c) 2022, Jericho Crosby <jericho.crosby227@gmail.com>
+// Copyright (c) 2023, Jericho Crosby <jericho.crosby227@gmail.com>
 
 package com.chalwk.listeners;
 
@@ -20,6 +20,9 @@ public interface CommandInterface {
 
     // Returns the options for the command:
     List<OptionData> getOptions();
+
+    // Returns the required role ID for the command:
+    String getRoleID();
 
     // Executes the command:
     void execute(SlashCommandInteractionEvent event);

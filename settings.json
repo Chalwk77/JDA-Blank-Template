@@ -1,0 +1,15 @@
+{
+  "commands": {
+    "rename_this_command": {
+      "role_id": "role_id",
+      "description": "description",
+      "options": {
+        "option_name_here": {
+          "type": "string",
+          "description": "DESCRIPTION_GOES_HERE",
+          "required": true
+        }
+      }
+    }
+  }
+}

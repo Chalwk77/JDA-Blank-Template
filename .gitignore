@@ -1,5 +1,6 @@
 # Ignore the target folder created by the build process
-+target/
+target/
+auth.token
 
 # Compiled class file
 *.class

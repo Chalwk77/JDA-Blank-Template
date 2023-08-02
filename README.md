@@ -1,13 +1,15 @@
 ### A blank JDA template for convenience.
 
 Features:
+- [x] `pom.xml` file with the latest JDA version and the `org.json` dependency
+- [x] `settings.json` file to store custom settings
+- [x] `gitignore` file
+- [x] `README.md` (this file)
+- [x] `LICENSE` file with the MIT license
+- [x] `CommandManager` class to manage commands
+- [x] `Command` interface to create commands
+- [x] `auth.token` file to store the bot token
+- [x] `EventListeners` class to manage event listeners
+- [x] `FileIO` class to read and write files
 
-- [x] A `pom.xml` file with the latest JDA version and the `org.json` dependency
-- [x] A `settings.json` file with the bot token
-- [x] A `gitignore` file to ignore the `target` folder
-- [x] A `README.md` file with the features of the template
-- [x] A `LICENSE` file with the MIT license
-- [x] A `CommandManager` class to manage commands
-- [x] A `Command` interface to create commands
-
-Copyright (c) 2022, Jericho Crosby <jericho.crosby227@gmail.com>
+Copyright (c) 2023, Jericho Crosby <jericho.crosby227@gmail.com>

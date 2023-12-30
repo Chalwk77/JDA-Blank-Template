@@ -2,7 +2,6 @@
 
 package com.template;
 
-import com.template.commands.RandomizeAll;
 import com.template.listeners.CommandManager;
 import com.template.listeners.EventListeners;
 import net.dv8tion.jda.api.OnlineStatus;
@@ -47,7 +46,7 @@ public class Main {
         shardManager.addEventListener(new EventListeners());
 
         CommandManager manager = new CommandManager();
-        manager.add(new RandomizeAll());
+        //manager.add(new CommandClassName());
 
         shardManager.addEventListener(manager);
 

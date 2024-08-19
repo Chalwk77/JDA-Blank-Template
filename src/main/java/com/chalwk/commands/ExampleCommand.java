@@ -1,8 +1,8 @@
-/* Copyright (c) 2023, Discord Bot Template. Jericho Crosby <jericho.crosby227@gmail.com> */
+/* Copyright (c) 2024, JDA Blank Template. Jericho Crosby <jericho.crosby227@gmail.com> */
 
-package com.template.commands;
+package com.chalwk.commands;
 
-import com.template.listeners.CommandInterface;
+import com.chalwk.CommandManager.CommandInterface;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
 import net.dv8tion.jda.api.interactions.commands.build.OptionData;
 
@@ -13,7 +13,7 @@ public class ExampleCommand implements CommandInterface {
 
     @Override
     public String getName() {
-        return "command name here";
+        return "test_command";
     }
 
     @Override

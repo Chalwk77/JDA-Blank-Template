@@ -1,6 +1,6 @@
-/* Copyright (c) 2023, Discord Bot Template. Jericho Crosby <jericho.crosby227@gmail.com> */
+/* Copyright (c) 2024, JDA Blank Template. Jericho Crosby <jericho.crosby227@gmail.com> */
 
-package com.template.listeners;
+package com.chalwk.CommandManager;
 
 import net.dv8tion.jda.api.entities.Guild;
 import net.dv8tion.jda.api.events.interaction.command.SlashCommandInteractionEvent;
@@ -12,7 +12,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class CommandManager extends ListenerAdapter {
+public class CommandListener extends ListenerAdapter {
 
     private final List<CommandInterface> commands = new ArrayList<>();
 

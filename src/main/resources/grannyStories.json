@@ -1,0 +1,35 @@
+[
+    {
+      "title": "Training Days",
+      "color": "GRAY",
+      "description": ["When I first joined the ATS, I remember the intense training we went through.",
+        "It was the first time I learned how to drive, you know! We had to master various military vehicles, from trucks to ambulances.",
+        "It wasn't easy, but we were all determined to serve our country in any way we could."]
+    },
+    {
+      "title": "The Thrill of Driving",
+      "color": "GRAY",
+      "description": ["Oh, the thrill of driving a big old military truck! We would often transport supplies and equipment to the front lines.",
+        "It was dangerous work, but someone had to do it. I met some lifelong friends during those missions. We laughed, cried, and leaned on each other for support."]
+    },
+    {
+      "title": "The ATS Uniform",
+      "color": "GRAY",
+      "description": ["We were so proud of our ATS uniforms! Wearing that khaki cap, jacket, and skirt made us feel",
+        "like we were really contributing to the war effort. Of course, it wasn't all glamour; we had to learn to take",
+        "care of our uniforms properly, polishing buttons and shining boots. It taught us discipline, I suppose!"]
+    },
+    {
+      "title": "The War's End",
+      "color": "GRAY",
+      "description": ["When the war finally ended, it was bittersweet. So many lives were lost, but we were so grateful for the peace.",
+        "I'll never forget the parades, the cheering crowds, and the tears of joy. We knew life would never be the same again, and we cherished the newfound hope for the future."]
+    },
+    {
+      "title": "Lessons from War",
+      "color": "GRAY",
+      "description": ["One of the most important lessons I learned during the war was the value of camaraderie and perseverance.",
+        "Being part of the ATS taught me the importance of teamwork, and the ability to carry on even in the toughest times.",
+        "Those years shaped my life, dearie, and I'll always be proud of the role I played in the war effort."]
+    }
+]
